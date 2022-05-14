@@ -142,12 +142,12 @@ int main(void) {
 				//ALTA  TRABAJO
 				if(bandera==1)
 				{
-					printf("\nNO SE DIO DE ALTA A NINGUNA MASCOTA!");
+					printf("\nNO SE DIO DE ALTA A NINGUNA MASCOTA!\n");
 				}
 				else
 				{
 					altaTrabajo(trabajoLista, TAM_TRAB, &idTrabajoRandom, lista, TAM, colorLista, TAM_COLOR, tipoLista, TAM_TIPO, servicioLista, TAM_SERV);
-					showMessage("\nALTA DE TRABAJO EXITOSA!");
+					showMessage("\nALTA DE TRABAJO EXITOSA!\n");
 				}
 				system("Pause");
 			break;
@@ -155,7 +155,7 @@ int main(void) {
 				//LISTAR TRABAJO
 				if(bandera==1)
 				{
-					printf("\nNO SE PUEDE LISTAR NO SE DIO DE ALTA AUN!");
+					printf("\nNO SE PUEDE LISTAR NO SE DIO DE ALTA AUN!\n");
 				}
 				else
 				{
@@ -167,11 +167,11 @@ int main(void) {
 				getUserConfirmation(&salir, "\nDESEA FINALIZAR EL PROGRAMA (S/N)?", "\nERROR, INGRESE UN VALOR VALIDO (S/N): ");
 				if(salir=='s')
 				{
-					showMessage("\nPROGRAMA FINALIZADO....");
+					showMessage("\nPROGRAMA FINALIZADO....\n");
 				}
 				else
 				{
-					showMessage("\nFINALIZACION CANCELADA....");
+					showMessage("\nFINALIZACION CANCELADA....\n");
 				}
 				system("Pause");
 			break;
@@ -202,7 +202,7 @@ int menu()
 			"9)LISTAR TRABAJOS         |\n|"
 			"10)SALIR                  |\n");
 	printf("|__________________________|\n");
-	getValidInt("INGRESE UN NUMERO: ", "\nERROR, REINGRESE UN NUMERO VALIDO: ", "\nUNICAMENTE NUMEROS.", 1, 10, &opcion);
+	getValidInt("INGRESE UN NUMERO: ", "\nERROR, REINGRESE UN NUMERO VALIDO.", "\nUNICAMENTE NUMEROS.", 1, 10, &opcion);
 
 
 	return opcion;

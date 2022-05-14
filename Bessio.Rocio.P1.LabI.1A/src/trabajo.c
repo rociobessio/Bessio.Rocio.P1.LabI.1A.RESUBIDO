@@ -152,35 +152,40 @@ int altaTrabajo(eTrabajo listaTrabajo[],int tamTrabajo,int* pIdTrab,eMascota lis
 
 
 
-int listarTrabajos(eTrabajo listaTrabajo[],int tamTrabajo)
+int listarTrabajos(eTrabajo listaTrabajo[],int tamTrabajo,eMascota lista[],int tam,eColor colorMascota[],int tamColor,eTipo tipoLista[],int tamTipo,eServicio listaServicio[],int tamServ)
 {
 	int todoOk = -1;
 
 	int bandera =0;
 
+	char descripcionNombre[20];
+	char descripcionServicio[20];
+
 	if(listaTrabajo!=NULL && tamTrabajo>0)
 	{
 		printf("\n\n");
 		//MUESTRO UN ENCABEZADO
-		showMessage("|-----------------------------------------------------------------------------|");
-		showMessage("|	 ***LISTADO DE TRABAJOS***                                            | ");
-		showMessage("|-----------------------------------------------------------------------------|");
-		showMessage("|  ID TRABAJO |	 ID SERVICIO    |	 ID MASCOTA        |  FECHA SERVICIO  |");
-		printf("|-----------------------------------------------------------------------------|\n");
+		showMessage("|---------------------------------------------------------------------------------------------------------|");
+		showMessage("|	                            ***LISTADO DE TRABAJOS***                                             | ");
+		showMessage("|---------------------------------------------------------------------------------------------------------|");
+		showMessage("|  ID TRABAJO |	         SERVICIO        |	      N. MASCOTA              |       FECHA SERVICIO      |");
+		printf("|---------------------------------------------------------------------------------------------------------|\n");
 		for(int i = 0;i<tamTrabajo;i++)
 		{
+			cargarServicio(listaServicio, tamServ, listaTrabajo[i].idServicio, descripcionServicio);
+			cargarNombreMascota(lista, tam, listaTrabajo[i].idMascota, descripcionNombre);
 			if(!listaTrabajo[i].isEmpty)
 			{
-				printf("|   %4d      |     %4d        |    	%4d               |  	 %02d/%02d/%02d   |\n",listaTrabajo[i].idTrabajo,
-																										listaTrabajo[i].idServicio,
-																										listaTrabajo[i].idMascota,
-																										listaTrabajo[i].fechaTrabajo.dia,
-																										listaTrabajo[i].fechaTrabajo.mes,
-																										listaTrabajo[i].fechaTrabajo.anio);
+				printf("|   %4d      |     %13s        |    	%15s               |  	 %02d/%02d/%02d       |\n",listaTrabajo[i].idTrabajo,
+																													descripcionServicio,
+																													descripcionNombre,
+																													listaTrabajo[i].fechaTrabajo.dia,
+																													listaTrabajo[i].fechaTrabajo.mes,
+																													listaTrabajo[i].fechaTrabajo.anio);
 				bandera=1;
 			}
 		}
-		printf("|-----------------------------------------------------------------------------|\n");
+		printf("|---------------------------------------------------------------------------------------------------------|\n");
 		if(bandera==0)
 		{
 			showMessage("\nNO HAY TRABAJOS CARGADOS EN EL SISTEMA!");

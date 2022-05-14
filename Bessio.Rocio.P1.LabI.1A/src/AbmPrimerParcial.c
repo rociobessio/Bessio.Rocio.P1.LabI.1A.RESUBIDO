@@ -159,7 +159,7 @@ int main(void) {
 				}
 				else
 				{
-					listarTrabajos(trabajoLista, TAM_TRAB);
+					listarTrabajos(trabajoLista, TAM_TRAB, lista, TAM, colorLista, TAM_COLOR, tipoLista, TAM_TIPO, servicioLista, TAM_SERV);
 				}
 				system("Pause");
 			break;

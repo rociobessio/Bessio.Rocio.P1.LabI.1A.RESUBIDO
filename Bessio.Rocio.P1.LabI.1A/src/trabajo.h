@@ -58,8 +58,7 @@ int altaTrabajo(eTrabajo listaTrabajo[],int tamTrabajo,int* pIdTrab,eMascota lis
 ///@param listaTrabajo [] eTrabajo array
 ///@param tamTrabajo int tamanio del array
 ///@return int 1 si los parametros son valios o 0 si Invalido
-int listarTrabajos(eTrabajo listaTrabajo[],int tamTrabajo);
-
+int listarTrabajos(eTrabajo listaTrabajo[],int tamTrabajo,eMascota lista[],int tam,eColor colorMascota[],int tamColor,eTipo tipoLista[],int tamTipo,eServicio listaServicio[],int tamServ);
 ///@brief	HARCODEO PARA FACILITAR LAS COSAS LA IDEA ES NO PERDER TIEMPO ES PARA TESTING
 ///@param listaTrabajo [] eTrabajo array
 ///@param tamTrab int tamanio del array

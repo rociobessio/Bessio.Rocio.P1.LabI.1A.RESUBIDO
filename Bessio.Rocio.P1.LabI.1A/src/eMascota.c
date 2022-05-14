@@ -133,6 +133,27 @@ int buscarReferencia(eMascota lista[],int tam,int* pIndex,int id)
 	return todoOk;
 }
 
+
+int cargarNombreMascota(eMascota vec[],int tam,int id, char descripcion[])
+{
+	int todoOk =-1;
+
+	int indice;
+	//ACA SE LLAMA A BUSCAR: Y SE PASA EL INDICE
+	buscarReferencia(vec, tam, &indice, id);
+
+	if(vec!=NULL && tam>0 && descripcion!=NULL && indice!=-1)
+	{
+		for(int i=0;i<tam;i++)
+		{
+			strcpy(descripcion,vec[indice].nombre);
+			todoOk =0;
+		}
+	}
+	return todoOk;
+}
+
+
 int alta(eMascota lista[],int tam,int* pId,eColor colorMascota[],int tamColor,eTipo tipoLista[],int tamTipo)
 {
 	int todoOk = 0;

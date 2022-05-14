@@ -89,7 +89,7 @@ int modificacion(eMascota lista[],int tam,int* pId,eColor colorMascota[],int tam
 ///@return int 1 si los parametros son valios o 0 si Invalido
 int hardcodeo(eMascota lista[],int tam,int* pId,int cant);
 
-
+int cargarNombreMascota(eMascota vec[],int tam,int id, char descripcion[]);
 
 ///							MOSTRAR
 

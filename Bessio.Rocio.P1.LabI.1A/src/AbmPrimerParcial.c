@@ -7,6 +7,16 @@
  Tema        : MASCOTAS
  ============================================================================
  */
+/* UNA VEZ QUE AGREGO LA ESTRUCTURA DEL RECUPERATORIO DE LA TENGO QUE PASAR A TODAS LAS FUNCIONES QUE TENGAN LA LISTA
+ * (SORT, ALTA MASCOTA, MODIFICACION, BAJA, LISTAR MASCOTA, LISTAR UNICO)
+ * DESPUES TENDRIA QUE EN ALTA MASCOTA LISTAR LA LISTA Y QUE INTRODUZCA A ID DEL DUEÑO PARA ASIGNAR A LA MASCOTA
+ * SI TIENE QUE APARECER EL NOMBRE DEL DUEÑO SE DEBE DE CARGAR EL VECTOR, LO MISMO QUE CON LA DE SERVICIO
+ * ESA ESTRUCTURA SE DEBE DE INICIALIZAR, BUSCAR REFERENCIA, BUSCAR LIBRE,LISTAR, HARCODEAR, ALTA Y CARGAR VECTOR
+ *
+ *
+ */
+
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,8 +30,12 @@
 #include "trabajo.h"
 #include "servicio.h"
 
+#include "informes.h"
+
 
 int menu();
+
+int submenu(eMascota lista[],int tam,eColor colorMascota[],int tamColor,eTipo tipoLista[],int tamTipo,eFecha fecha,eServicio servicioLista[],int tamServicio,eTrabajo listaTrabajo[],int tamTrabajo);
 
 #define TAM 10 //TAM MASCOTAS
 
@@ -38,7 +52,7 @@ int main(void) {
 
 	char salir = 'n';
 
-	eMascota lista[TAM]; //RECORDAR CAMBIAR NOMBRE
+	eMascota lista[TAM];
 
 	eColor colorLista[TAM_COLOR] = {
 			{5000,"NEGRO"},
@@ -65,7 +79,9 @@ int main(void) {
 
 	eTrabajo trabajoLista[TAM_TRAB];
 
-	int idInicial = 1;//CAMBIA DEPENDIENDO LA CONSIGNA
+	eFecha fecha;
+
+	int idInicial = 1;
 
 	int idTrabajoRandom = 2000;
 
@@ -75,8 +91,8 @@ int main(void) {
 	inicializarEstructura(lista, TAM);
 	inicializarEstructuraTrabajo(trabajoLista, TAM_TRAB);
 
+	//HARDCODEOS
 	hardcodeo(lista, TAM, &idInicial, 6);
-
 	hardcodeoTrabajo(trabajoLista, TAM_TRAB, &idTrabajoRandom, 3);
 
 
@@ -164,6 +180,9 @@ int main(void) {
 				system("Pause");
 			break;
 			case 10:
+				submenu(lista, TAM, colorLista, TAM_COLOR, tipoLista, TAM_TIPO, fecha, servicioLista, TAM_SERV, trabajoLista, TAM_TRAB);
+			break;
+			case 11:
 				getUserConfirmation(&salir, "\nDESEA FINALIZAR EL PROGRAMA (S/N)?", "\nERROR, INGRESE UN VALOR VALIDO (S/N): ");
 				if(salir=='s')
 				{
@@ -200,10 +219,91 @@ int menu()
 			"7)LISTAR SERVICIOS        |\n|"
 			"8)ALTA TRABAJO            |\n|"
 			"9)LISTAR TRABAJOS         |\n|"
-			"10)SALIR                  |\n");
+			"10)INFORMES               |\n|"
+			"11)SALIR                  |\n");
 	printf("|__________________________|\n");
-	getValidInt("INGRESE UN NUMERO: ", "\nERROR, REINGRESE UN NUMERO VALIDO.", "\nUNICAMENTE NUMEROS.", 1, 10, &opcion);
+	getValidInt("INGRESE UN NUMERO: ", "\nERROR, REINGRESE UN NUMERO VALIDO.", "\nUNICAMENTE NUMEROS.", 1, 11, &opcion);
 
 
 	return opcion;
+}
+
+int submenu(eMascota lista[],int tam,eColor colorMascota[],int tamColor,eTipo tipoLista[],int tamTipo,eFecha fecha,eServicio servicioLista[],int tamServicio,eTrabajo listaTrabajo[],int tamTrabajo)
+{
+	int todoOk =-1;
+	int opcion;
+
+	if(lista!=NULL && tam>0 && colorMascota!=NULL && tamColor>0 && tipoLista!=NULL && tamTipo>0 && servicioLista!=NULL && tamServicio>0 && listaTrabajo!=NULL && tamTrabajo>0)
+	{
+		printf("\n\n\n\n");
+		printf("\n____________________________________________________________");
+		printf("\n                                                            |");
+		printf("\n       INFORMES    VETERINARIA    MASCOTAS                  |\n");
+		printf("____________________________________________________________|\n");
+		printf("____________________________");
+		printf("\n|1)                        |\n|"
+				"2)                        |\n|"
+				"3)                        |\n|"
+				"4)                        |\n|"
+				"5)                        |\n|"
+				"6)                        |\n|"
+				"7)                        |\n|"
+				"8)                        |\n|"
+				"9)                        |\n|"
+				"10)                       |\n|"
+				"11)SALIR                  |\n");
+		printf("|__________________________|\n");
+		getValidInt("INGRESE UN NUMERO: ", "\nERROR, REINGRESE UN NUMERO VALIDO.", "\nUNICAMENTE NUMEROS.", 1, 11, &opcion);
+
+		switch(opcion)
+		{
+			case 1:
+
+				system("Pause");
+			break;
+			case 2:
+
+				system("Pause");
+			break;
+			case 3:
+
+				system("Pause");
+			break;
+			case 4:
+
+				system("Pause");
+			break;
+			case 5:
+
+				system("Pause");
+			break;
+			case 6:
+
+				system("Pause");
+			break;
+			case 7:
+
+				system("Pause");
+			break;
+			case 8:
+
+				system("Pause");
+			break;
+			case 9:
+
+				system("Pause");
+			break;
+			case 10:
+
+				system("Pause");
+			break;
+			case 11:
+				showMessage("\nSALIO DE INFORMES....\n");
+				system("Pause");
+			break;
+		}
+		todoOk=1;
+	}
+
+	return todoOk;
 }
